@@ -7,9 +7,8 @@
 * [GitHub basic setup](#github-basic-setup)
 * [GitHub best practices](#github-best-practices)
 * [GitHub workflow](#github-workflow)
-* [Re-vendor PRs](#re-vendor-prs)
-* [Use static checks for validation](#use-static-checks-for-validation)
 * [Patch format](#patch-format)
+* [Stable branch backports] (#Stable-branch-backports)
 * [Reviews](#reviews)
 * [Continuous Integration](#continuous-integration)
 * [Contact](#contact)
@@ -267,7 +266,7 @@ multiple commits on your branch. Follow these steps.
    repository:
 
     ```
-    $ cd $GOPATH/src/github.com/kata-containers/community
+    $ cd $GOPATH/src/github.com/IBM/raksh
     $ git checkout master
     $ git pull --rebase upstream master
     ```
@@ -346,7 +345,7 @@ This notification allows the team to once again review your PR more quickly.
 
 ### GitHub labels and keywords that block PRs
 
-Kata Containers CI systems have two methods that allow marking
+There are two methods that allow marking
 PRs to prevent them being merged. This practice is often used during
 development. The two methods are: 1) Use
 [GitHub labels](https://help.github.com/articles/about-labels/)
@@ -372,109 +371,7 @@ automatically blocked from merging.
 >shorthand for `do-not-merge`. The CI systems only recognise the above 
 >phrases as shown.
 
-## Re-vendor PRs
-
-If you raise a PR to update the vendored copy of one or more golang packages,
-after running the
-[`dep`](https://github.com/kata-containers/community/blob/master/VENDORING.md) command, ensure you add any modified files under the `vendor/` directory to Git before committing the changes:
-
-```sh
-$ git add vendor/
-```
-
-There are two critical pieces of information you need to add to the commit
-body:
-
-- A brief explanation why the re-vendor is required.
-
-  For example, you should state if an important bug fix or new feature is
-  required, or if a particular commit is needed.
-
-- The range of commits being added for these third-party packages.
-
-  It is possible that re-vendoring a particular package will also result in
-  updates to other dependent packages. However, it is important to include 
-  the commit range (even if it is big) for the primary package(s) the 
-  re-vendor PR is raised for.
-
-  These details allow for easier troubleshooting if the re-vendor PR
-  introduces bug or behavioral changes.
-
-  Generate the list of new commits added to the primary re-vendored
-  package by comparing the previous and latest commits for the package being re-vendored.
-
-  The following example lists the steps you should take if a new version of
-  `libcontainer` (part of the `runc` repository) is required:
-
-  1. Determine the previous and latest commits for the package by looking at
-     the `diff` of the `Gopkg.toml` file in your branch.
-
-  1. Run the commands below:
-
-     ```bash
-     $ go get -d -u github.com/opencontainers/runc
-     $ cd $GOPATH/src/github.com/opencontainers/runc
-     $ old_commit="..."
-     $ new_commit="..."
-     $ git log --no-merges --abbrev-commit --pretty=oneline "${old_commit}..${new_commit}" | sed 's/^/    /g'
-     ```
-
-  Paste the output of the previous command directly into the commit "as-is".
-  Note that the four space indent added by the `sed` command is used to force
-  GitHub to render the list in a fixed-width font, which makes it easier to
-  read.
-
-For additional information on using the `dep` tool, see
-"[Performing vendoring for the Kata Containers project](https://github.com/kata-containers/community/blob/master/VENDORING.md)".
-
-## Use static checks for validation
-
-* Kata Containers utilizes [Continuous Integration (CI)](#continuous-integration) to automatically check every PR.
-
-* We strongly encourage you to run the same CI tests on individual PRs, using [static checks](https://github.com/kata-containers/tests/blob/master/.ci/static-checks.sh)
-
-In repositories where a `Makefile` is present, you can execute 
-static checks for testing and development. To do so, invoke the `make check` and `make test` rules, after developer mode is enabled.
-
-```sh
-$ export KATA_DEV_MODE=true
-$ make check
-$ make test
-```
-Running these checks should result in **no errors**. If errors are reported, fix them before submitting your PR.
-
-To replicate the static checks performed by the CI system:
-
-- [x] Ensure you have a "clean" source tree, as the checks cover all files
-  present. Checks might fail if you have extra files or your files are out of date in your tree.
-
-- [x] Ensure [`golangci-lint`](https://github.com/golangci/golangci-lint) is 
-current or has not been previously installed (the static check scripts will 
-install it if necessary). Changing the linters used or the Kata
-Containers code base can produce spurious errors that do not fail inside the 
-CI systems.
-
-### Fix failed static checks after submitting PRs
-
-Some submitted PRs fail to pass static checks. After such a PR fails,
-view its build logs to determine the cause of failure.
-
-1. At the bottom of the PR, if a message appears, "Some checks were not
-   successful,"  select "Details", as shown below.
-    
-    ![Failed CI-CD](fig1-ci-cd-failure.png)
-
-1. Upon entering the Travis CI* web page, select the first number that
-   appears below "Build jobs."
-
-1. Scroll to the bottom of the build log and view the `ERROR` message(s). 
-   In the example below, the `ERROR` reads: `... no 
-   signed-off-by specified`. This is a requirement. To fix, use the signed-off-by method while pushing a commit. See [Patch format](
-   #patch-format) for more details.
-
-    ![Build log error messages](fig2-ci-cd-log.png)
-
-### Stable branch backports
+## Stable branch backports
 
 Kata Containers maintains a number of stable branch releases. Bug fixes to
 the master branch are selectively applied to (or "backported") these stable branches.
@@ -575,7 +472,7 @@ is also acceptable to include additional or
 ### Verification
 
 Correct formatting of the PR patches is verified using the
-[`checkcommits`](https://github.com/kata-containers/tests/tree/master/cmd/checkcommits)
+**checkcommits**
 tool.
 
 ### Examples
@@ -626,9 +523,6 @@ GitHub "Review changes" dialog to leave feedback. Notes left only in the
 comments fields, whilst sometimes useful, will not get registered
 in the acknowledgment counting system.
 
-Documentation PRs can sometimes use a modified process explained in the
-[Documentation Review Process](Documentation-Review-Process.md) guide.
-
 ### Review Examples
 
 The following is an example of a valid "ack", as long as
@@ -642,10 +536,9 @@ lgtm
 
 ## Continuous Integration
 
-The Kata Containers project has a gating process to prevent introducing
+The Raksh project has a gating process to prevent introducing
 regressions. When your PR is submitted, a Continuous Integration (CI) system
-will run different checks on different platforms, based upon your changes. Currently Kata uses [Jenkins](http://jenkins.katacontainers.io) and
-[Travis CI](https://travis-ci.org/kata-containers/) for testing your changes.
+will run different checks on different platforms, based upon your changes.
 
 Some of the checks are:
 
@@ -662,12 +555,12 @@ All CI jobs must pass in order to merge your PR.
 
 ## Contact
 
-The Kata Containers community can be reached
+The Raksh community can be reached
 [through various channels](README.md#join-us).
 
 ## Project maintainers
 
-The Kata Containers project maintainers are the people accepting or
+The Raksh project maintainers are the people accepting or
 rejecting any PR. Although [anyone can review PRs](#reviews), only the
 acknowledgement (or "ack") from an Approver counts towards the approval of a PR.
 
@@ -678,4 +571,4 @@ along with the [GitHub `CODEOWNERS`file](https://help.github.com/en/articles/abo
 
 - Two approvals from the repository-specific approval team.
 
-- One [documentation team](https://github.com/orgs/kata-containers/teams/documentation/members) approval if the PR modifies documentation.
+- One [documentation team](https://github.com/IBM/raksh/README.md#Team) approval if the PR modifies documentation.
