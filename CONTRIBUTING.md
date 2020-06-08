@@ -1,4 +1,4 @@
-# Contributing to CRI-O
+# Contributing to RAKSH
 We'd love to have you join the community! Below summarizes the processes
 that we follow.
 ## Topics
@@ -7,7 +7,7 @@ that we follow.
 * [Communications](#communications)
 ## Reporting Issues
 Before reporting an issue, check our backlog of
-[open issues](https://github.com/cri-o/cri-o/issues)
+[open issues](https://github.com/IBM/raksh/issues)
 to see if someone else has already reported it. If so, feel free to add
 your scenario, or additional information, to the discussion. Or simply
 "subscribe" to it to be notified when it is updated.
@@ -56,7 +56,7 @@ In order to add or update a dependency to this project run:
 > export GO111MODULE=on
 > go get -u [DEPENDENCY]
 ```
-Since CRI-O uses go modules we highly recommend reading the [go modules
+Since RAKSH uses go modules we highly recommend reading the [go modules
 wiki](https://github.com/golang/go/wiki/Modules), especially the [daily workflow
 section](https://github.com/golang/go/wiki/Modules#daily-workflow).
 To ensure the working directory contains all necessary files afterwards, run:
@@ -107,7 +107,7 @@ For general questions, or discussions, please use the
 IRC group on `irc.freenode.net` called `cri-o`
 that has been setup.
 For discussions around issues/bugs and features, you can use the github
-[issues](https://github.com/cri-o/cri-o/issues)
+[issues](https://github.com/IBM/raksh/issues)
 and
 [PRs](https://github.com/cri-o/cri-o/pulls)
 tracking system.
