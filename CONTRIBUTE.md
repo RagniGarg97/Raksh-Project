@@ -612,4 +612,4 @@ along with the [GitHub `CODEOWNERS`file](https://help.github.com/en/articles/abo
 
 - Two approvals from the repository-specific approval team.
 
-- One [documentation team](https://github.com/IBM/raksh/README.md#Team) approval if the PR modifies documentation.
+- One [documentation team](https://github.com/IBM/raksh#team) approval if the PR modifies documentation.
