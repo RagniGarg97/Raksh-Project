@@ -420,7 +420,7 @@ commit automatically with `git commit -s`.
 
 ## Stable branch backports
 
-Kata Containers maintains a number of stable branch releases. Bug fixes to
+Raksh maintains a number of stable branch releases. Bug fixes to
 the master branch are selectively applied to (or "backported") these stable branches.
 
 In order to aid identification of commits that potentially should be
@@ -515,12 +515,6 @@ is also acceptable to include additional or
 - Comment improvements
 - Tidy up work
 - Refactoring to simplify the codebase
-
-### Verification
-
-Correct formatting of the PR patches is verified using the
-**checkcommits**
-tool.
 
 ### Examples
 
