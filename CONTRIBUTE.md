@@ -63,7 +63,7 @@ To get started, complete the prerequisites below.
   >use to sign-off commits.
 
 - [Fork and Clone](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) the relevant repository at the 
-  [Kata Containers Project](https://github.com/kata-containers).
+  [Raksh Project](https://github.com/IBM/raksh).
 
    Example: Your local clone should show `your-github-username`, as follows.
    `https://github.com/${your-github-username}/community`.
