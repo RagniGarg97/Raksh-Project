@@ -14,13 +14,6 @@
 * [Contact](#contact)
 * [Project maintainers](#project-maintainers)
 
-The Kata Containers project is an open source project licensed under the
-[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
-It comprises a number of repositories under the [GitHub Kata
-Containers organisation](https://github.com/kata-containers). Unless
-explicitly stated otherwise, all the Kata Containers repositories follow the
-process documented here.
 
 ## Reporting Issues
 Before reporting an issue, check our backlog of
