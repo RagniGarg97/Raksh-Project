@@ -1,6 +1,6 @@
 # Contribute to the RAKSH project
 
-* [Code of Conduct](#code-of-conduct)
+* [Reporting issue](#reporting-issues)
 * [Pull requests](#pull-requests)
 * [Golang Coding Style](#golang-coding-style)
 * [Certificate of Origin](#certificate-of-origin)
@@ -23,11 +23,28 @@ Containers organisation](https://github.com/kata-containers). Unless
 explicitly stated otherwise, all the Kata Containers repositories follow the
 process documented here.
 
-## Code of Conduct
-
-All contributors must agree to the project [code of conduct](CODE_OF_CONDUCT.md).
+## Reporting Issues
+Before reporting an issue, check our backlog of
+[open issues](https://github.com/IBM/raksh/issues)
+to see if someone else has already reported it. If so, feel free to add
+your scenario, or additional information, to the discussion. Or simply
+"subscribe" to it to be notified when it is updated.
+If you find a new issue with the project we'd love to hear about it! The most
+important aspect of a bug report is that it includes enough information for
+us to reproduce it. So, please include as much detail as possible and try
+to remove the extra stuff that doesn't really relate to the issue itself.
+The easier it is for us to reproduce it, the faster it'll be fixed!
+Please don't include any private/sensitive information in your issue!
 
 ## Pull requests
+
+No Pull Request (PR) is too small! Typos, additional comments in the code, new testcases, bug fixes, new features, more documentation, ... it's all welcome! While bug fixes can first be identified via an "issue", that is not required. It's ok to just open up a PR with the fix, but make sure you include the same information you would have included in an issue - like how to reproduce it. PRs for new features should include some background on what use cases the new code is trying to address. When possible and when it makes sense, try to break-up larger PRs into smaller ones - it's easier to review smaller code changes. But only if those smaller ones make sense as stand-alone PRs. Regardless of the type of PR, all PRs should include:
+
+- well documented code changes
+- additional testcases. Ideally, they should fail w/o your code change applied
+- documentation changes Squash your commits into logical pieces of work that might want to be reviewed separate from the rest of the PRs. But, squashing down to just one commit is ok too since in the end the entire PR will be reviewed anyway. When in doubt, squash.
+
+PRs that fix issues should include a reference like Closes #XXXX in the commit message so that github will automatically close the referenced issue when the PR is merged.
 
 All the repositories accept contributions via [GitHub Pull requests (PR)](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests). Submit PRs by following the [GitHub workflow](#github-workflow).
 
