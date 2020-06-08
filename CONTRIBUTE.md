@@ -73,7 +73,6 @@ To get started, complete the prerequisites below.
 Special Git configuration is required for these contributors:
 
 * [Golang coding style](#golang-coding-style)
-* [Kata runtime static checks](#kata-runtime-static-checks)
 
 For all other contributor roles, follow the standard configuration, shown in
 Prerequisites. 
@@ -107,7 +106,7 @@ To report a bug that is not already documented, please open a GitHub issue for t
 
 If it is unclear which repository to raise your query against, first try to
 get in [contact](#contact) with us. If in doubt, raise the issue
-[here](https://github.com/kata-containers/community/issues/new) and we will
+[here](https://github.com/IBM/raksh/issues/new) and we will
 help you to handle the query by routing it to the correct area for resolution.
 
 ### Closing issues
@@ -130,7 +129,7 @@ The issue is automatically closed by GitHub when the
 
 ## GitHub workflow
 
-Kata Containers employs certain augmentations to a 
+Raksh employs certain augmentations to a 
 [standard GitHub workflow](https://guides.github.com/introduction/flow/). 
 In this section, we explain these augmentations in more detail. Follow these guidelines when contributing to Kata Containers repositories, except where noted below.
 
@@ -154,7 +153,7 @@ In this section, we explain these augmentations in more detail. Follow these gui
 
 #### Configure your environment
 
-Most [Kata Containers repositories](https://github.com/kata-containers)
+Most [Raksh repository](https://github.com/IBM/raksh)
 contain code written in the [Go language (golang)](https://golang.org/). Go 
 requires all code to be put inside the directory specified by the `$GOPATH` 
 variable. Follow this example to put the code in the standard location.
@@ -163,9 +162,6 @@ variable. Follow this example to put the code in the standard location.
 $ export GOPATH=${GOPATH:-$HOME/go}
 $ mkdir -p "$GOPATH"
 ```
-
-For further details on `golang`, refer to the 
-[requirements section of the Kata Developer Guide](https://github.com/kata-containers/documentation/blob/master/Developer-Guide.md#requirements-to-build-individual-components).
 
 >*Note*: If you intend to make minor edits, it's acceptable
 > to simply fork and clone without adding the GOPATH variable.
@@ -186,39 +182,14 @@ In this example, we configure a Git environment to contribute to this very
    so your real GitHub user name replaces `your-github-username` below.
   
 ```sh
-$ dir="$GOPATH/src/github.com/kata-containers" 
-$ mkdir -p "$dir"
-$ cd "$dir"
-$ git clone https://github.com/{your-github-username}/community
-$ cd community
+$ mkdir -p $GOPATH/src/github.com/ibm
+$ cd $GOPATH/src/github.com/ibm
+$ git clone https://github.com/ibm/raksh.git
+$ git checkout -b 1.9.1-raksh origin/1.9.1-raksh
 ```
    
 >**Note:** Cloning a forked repository automatically gives a remote `origin`.
 
-##### Configure the upstream remote
-
-Next, add the remote `upstream`. Configuring this remote allows you to
-synchronize your forked copy, `origin`, with the `upstream`. The 
-`upstream` URL varies by repository. We use the `upstream` from the Community for this example. 
-
-1. Change directory into `community`. 
-
-1. Set the remote `upstream` as follows. 
-
-    ```sh
-    $ git remote add upstream https://github.com/kata-containers/community
-    ```
-
-1. Run `git remote -v`. Your remotes should appear similar to these:
-
-    ```
-    origin  https://github.com/your-github-username/community.git (fetch)  
-    origin  https://github.com/your-github-username/community.git (push)  
-    upstream  https://github.com/kata-containers/community (fetch)  
-    upstream  https://github.com/kata-containers/community (push)  
-    ```
-
-For more details, see how to [set up a git remote](https://help.github.com/articles/configuring-a-remote-for-a-fork).
 
 ##### Create a topic branch
 
@@ -258,7 +229,7 @@ For more details, see how to [set up a git remote](https://help.github.com/artic
    >for a new clone.
 
 1. Create the PR:
-  - Browse to https://github.com/kata-containers/community.
+  - Browse to https://github.com/IBM/raksh.
   - Click the "Compare & pull request" button that appears.
   - Click the "Create pull request" button.
 
@@ -502,22 +473,6 @@ view its build logs to determine the cause of failure.
    #patch-format) for more details.
 
     ![Build log error messages](fig2-ci-cd-log.png)
-
-#### Kata runtime static checks
-
-If working on `kata-runtime`, first ensure you run `make` and `make install` 
-in the `virtcontainers` subdirectory, as shown below. For more information, 
-see [virtcontainers](https://github.com/kata-containers/runtime/blob/master/virtcontainers/documentation/Developers.md#testing).
-
-```bash
-$ pushd runtime/virtcontainers
-$ make
-$ sudo -E PATH=$PATH make install
-$ popd
-```
-
->**Note:** The final `popd` is required to return to the top-level directory 
->from where other build rules can be executed.
 
 ### Stable branch backports
 
