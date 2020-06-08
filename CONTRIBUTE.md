@@ -555,8 +555,8 @@ All CI jobs must pass in order to merge your PR.
 
 ## Contact
 
-The Raksh community can be reached
-[through various channels](README.md#join-us).
+Get an [invite to our Slack channel](https://slack.k8s.io/),
+  and then join us on Slack **#raksh**
 
 ## Project maintainers
 
