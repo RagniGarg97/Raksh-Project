@@ -109,7 +109,7 @@ that has been setup.
 For discussions around issues/bugs and features, you can use the github
 [issues](https://github.com/IBM/raksh/issues)
 and
-[PRs](https://github.com/cri-o/cri-o/pulls)
+[PRs](https://github.com/IBM/raksh/pulls)
 tracking system.
 [code-owners]: https://help.github.com/articles/about-codeowners/
 [prow-approvers]: https://github.com/kubernetes/test-infra/blob/master/prow/plugins/approve/approvers/README.md#overview
