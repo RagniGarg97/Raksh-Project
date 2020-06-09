@@ -439,8 +439,7 @@ one or more of the following labels. At least one label that is *not*
 In the event that a bug fix PR is selected for backporting to the stable
 branches, the `stable-candidate` label is added if not already present, and
 the original author of the PR is asked if they will submit the relevant
-backport PRs. For a quick guide on how to perform and submit a backport, see 
-the [Backport Guide](Backport-Guide.md) in this repository.
+backport PRs. 
 
 ## Patch format
 
