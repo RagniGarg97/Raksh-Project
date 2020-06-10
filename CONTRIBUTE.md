@@ -614,5 +614,5 @@ along with the [GitHub `CODEOWNERS`file](https://help.github.com/en/articles/abo
 
 #### References
 
-[Kata](https://github.com/kata-containers/community/blob/master/CONTRIBUTING.md) Guide.
-[Crio](https://github.com/cri-o/cri-o/blob/master/CONTRIBUTING.md) Guide.
+- [Kata](https://github.com/kata-containers/community/blob/master/CONTRIBUTING.md) Guide.
+- [Crio](https://github.com/cri-o/cri-o/blob/master/CONTRIBUTING.md) Guide.
