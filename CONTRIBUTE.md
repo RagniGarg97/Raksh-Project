@@ -127,7 +127,7 @@ they are related to a container.
 
 Fixes #123
 
-Signed-off-by: Sebastien Boeuf <sebastien.boeuf@intel.com>
+Signed-off-by: Ragni Garg <ragni.garg@in.ibm.com>
 ```
 
 The issue is automatically closed by GitHub when the
@@ -529,7 +529,7 @@ they are related to a container.
 
 Fixes: #123
 
-Signed-off-by: Sebastien Boeuf <sebastien.boeuf@intel.com>
+Signed-off-by: Ragni Garg <ragni.garg@in.ibm.com>
 ```
 
 #### Supplementary patch
@@ -545,7 +545,7 @@ image-builder: Fix incorrect error message
 Fixed an error message which was referring to an incorrect rootfs
 variable name.
 
-Signed-off-by: James O. D. Hunt <james.o.hunt@intel.com>
+Signed-off-by: Ragni Garg <ragni.garg@in.ibm.com>
 ```
 
 ## Reviews
