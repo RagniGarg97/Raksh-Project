@@ -597,6 +597,7 @@ All CI jobs must pass in order to merge your PR.
 
 Get an [invite to our Slack channel](https://slack.k8s.io/),
   and then join us on Slack **#raksh**
+  Feel free to reach out to our [team](https://github.com/IBM/raksh#team)
 
 ## Project maintainers
 
@@ -611,4 +612,3 @@ along with the [GitHub `CODEOWNERS`file](https://help.github.com/en/articles/abo
 
 - Two approvals from the repository-specific approval team.
 
-- Our [team](https://github.com/IBM/raksh#team) .
