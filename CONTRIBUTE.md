@@ -612,3 +612,7 @@ along with the [GitHub `CODEOWNERS`file](https://help.github.com/en/articles/abo
 
 - Two approvals from the repository-specific approval team.
 
+#### Reference
+
+[Kata](https://github.com/kata-containers/community/blob/master/CONTRIBUTING.md)Guide
+
