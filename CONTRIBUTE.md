@@ -174,8 +174,8 @@ In this example, we configure a Git environment to contribute to this very
    so your real GitHub user name replaces `your-github-username` below.
   
 ```sh
-$ mkdir -p $GOPATH/src/github.com
-$ cd $GOPATH/src/github.com
+$ mkdir -p $GOPATH/src/github.com/ibm
+$ cd $GOPATH/src/github.com/ibm
 $ git clone https://github.com/{your-github-username}/raksh.git
 $ git checkout -b 1.9.1-raksh origin/1.9.1-raksh
 $ cd raksh
